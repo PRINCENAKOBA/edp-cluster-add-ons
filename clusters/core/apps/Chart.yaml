@@ -29,7 +29,7 @@ maintainers:
   - name: sergk
     url: https://github.com/SergK
 sources:
-  - https://github.com/epam/edp-cluster-add-ons
+  - https://github.com/Techsecom/edp-cluster-add-ons.git
 annotations:
   artifacthub.io/license: Apache-2.0
   artifacthub.io/links: |
