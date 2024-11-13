@@ -7,8 +7,8 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    server: https://kubernetes.argocd.svc
-  project: core
+    server: https://kubernetes.default.svc
+  project: default
   source:
     path: clusters/core/apps
     repoURL: https://github.com/Techsecom/edp-cluster-add-ons.git
