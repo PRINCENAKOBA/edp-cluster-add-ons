@@ -11,5 +11,5 @@ spec:
   project: core
   source:
     path: clusters/core/apps
-    repoURL: ssh://git@github.com/Techsecom/edp-cluster-add-ons.git
+    repoURL: https://github.com/Techsecom/edp-cluster-add-ons.git
     targetRevision: HEAD
