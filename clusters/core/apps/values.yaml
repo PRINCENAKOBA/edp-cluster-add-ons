@@ -49,8 +49,8 @@ cert-manager:
 # -- DefectDojo
 defectdojo:
   # -- whether to create the namespace or not
-  createNamespace: false
-  enable: false
+  createNamespace: true
+  enable: true
 
 dependency-track:
   createNamespace: false
