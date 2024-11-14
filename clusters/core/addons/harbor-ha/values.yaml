@@ -131,7 +131,7 @@ harbor:
     resourcePolicy: "keep"
     persistentVolumeClaim:
       trivy:
-        storageClass: "ebs-sc"
+        storageClass: "longhorn"
         size: 5Gi
     imageChartStorage:
       type: "s3"
