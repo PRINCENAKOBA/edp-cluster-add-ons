@@ -108,7 +108,10 @@ keycloakx:
           - path: '{{ tpl .Values.http.relativePath $ | trimSuffix "/" }}/js/'
             pathType: Prefix
     # Provides creating Ingress for Keycloak which is used to access the Keycloak Admin Console.
-    tls: true
+    tls:
+      - secretName: keycloak-tls-secret
+        hosts:
+          - keycloak.techsecoms.com
 
 
     console:
