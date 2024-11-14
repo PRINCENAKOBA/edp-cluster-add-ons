@@ -49,8 +49,8 @@ cert-manager:
 # -- DefectDojo
 defectdojo:
   # -- whether to create the namespace or not
-  createNamespace: true
-  enable: true
+  createNamespace: false
+  enable: false
 
 dependency-track:
   createNamespace: false
@@ -69,8 +69,8 @@ kuberocketci-rbac:
   enable: false
 
 external-secrets:
-  createNamespace: false
-  enable: false
+  createNamespace: true
+  enable: true
 
 # fluent-bit can be installed as a single component
 fluent-bit:
@@ -100,8 +100,8 @@ ingress-nginx-external:
   enable: false
 
 jaeger-operator:
-  enable: false
-  createNamespace: false
+  enable: true
+  createNamespace: true
 
 keycloak:
   createNamespace: false
@@ -112,16 +112,16 @@ keycloak-postgresql:
   enable: false
 
 keycloak-operator:
-  createNamespace: false
-  enable: false
+  createNamespace: true
+  enable: true
 
 krakend:
   createNamespace: false
   enable: false
 
 minio-operator:
-  createNamespace: false
-  enable: false
+  createNamespace: true
+  enable: true
 
 nexus:
   createNamespace: false
@@ -142,13 +142,13 @@ opensearch:
   enable: false
 
 opentelemetry-operator:
-  enable: false
-  createNamespace: false
+  enable: true
+  createNamespace: true
 
 # Postgres Operator
 postgres-operator:
-  createNamespace: false
-  enable: false
+  createNamespace: true
+  enable: true
 
 report-portal:
   createNamespace: false
@@ -167,8 +167,8 @@ sonar:
   enable: false
 
 sonar-operator:
-  createNamespace: false
-  enable: false
+  createNamespace: true
+  enable: true
 
 storage-class:
   enable: false
