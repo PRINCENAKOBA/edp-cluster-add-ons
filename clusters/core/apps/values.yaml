@@ -1,5 +1,5 @@
 # Place all applications under this project
-argoProject: core
+argoProject: default
 
 # Specifies the destination server where the code will be deployed.
 # In this case, "in-cluster" indicates that the deployment will happen within the Kubernetes cluster itself.
