@@ -92,6 +92,8 @@ keycloakx:
     # Defines the class of the Ingress Controller.
     # It allows you to choose which Ingress controller in cluster should be used to expose the Keycloak service to the outside world.
     ingressClassName: "nginx"
+    hostname: keycloak.techsecoms.com
+    servicePort: http
     # Exposes Keycloak paths according to the rules from documentation.
     # Ref: https://www.keycloak.org/server/reverseproxy#_exposed_path_recommendations
     rules:
@@ -106,6 +108,9 @@ keycloakx:
           - path: '{{ tpl .Values.http.relativePath $ | trimSuffix "/" }}/js/'
             pathType: Prefix
     # Provides creating Ingress for Keycloak which is used to access the Keycloak Admin Console.
+    tls: true
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
     console:
       enabled: true
       # Defines the class of the Ingress controller.
@@ -121,10 +126,10 @@ keycloakx:
             - path: '{{ tpl .Values.http.relativePath $ | trimSuffix "/" }}/admin'
               pathType: Prefix
 
-  proxy:
-    enabled: true
-    # Ensure X-Forwarded-For header is set to the client's IP address
-    mode: "edge"
+#   proxy:
+#     enabled: false
+#     # Ensure X-Forwarded-For header is set to the client's IP address
+#     mode: "edge"
 
   resources:
     limits:
