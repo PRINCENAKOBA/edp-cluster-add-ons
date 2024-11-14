@@ -13,3 +13,7 @@ spec:
     path: clusters/core/apps
     repoURL: https://github.com/Techsecom/edp-cluster-add-ons.git
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

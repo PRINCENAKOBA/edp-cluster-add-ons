@@ -2,8 +2,7 @@ defectdojo:
   tag: 2.34.1
   fullnameOverride: defectdojo
   host: defectdojo.example.com
-  site_url: https://defectdojo.example.com
-  alternativeHosts:
+  site_url: https://defectdojo.techsecoms.com
     - defectdojo-django.defectdojo
 
   initializer:
