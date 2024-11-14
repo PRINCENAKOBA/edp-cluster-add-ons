@@ -88,8 +88,8 @@ harbor-ha:
 
 # Harbor with HA, OKD Cluster
 harbor-ha-okd:
-  createNamespace: true
-  enable: true
+  createNamespace: false
+  enable: false
 
 ingress-nginx:
   createNamespace: false
@@ -159,8 +159,8 @@ prometheus-operator:
   enable: false
 
 redis-operator:
-  createNamespace: false
-  enable: false
+  createNamespace: true
+  enable: true
 
 sonar:
   createNamespace: true
