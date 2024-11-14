@@ -176,7 +176,7 @@ oidc:
 # Configure components of the External Secrets Operator (ESO).
 eso:
   # -- Install components of the ESO.
-  enabled: false
+  enabled: true
   # -- Defines provider type. One of `aws` or `generic`.
   type: "generic"
   # -- Defines Secret Store name.
