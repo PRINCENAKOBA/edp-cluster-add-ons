@@ -35,7 +35,7 @@ sonar-operator:
   #    subPath: CA.crt
 
 # -- URL and secret name which use sonar operator for configuring sonar
-sonarUrl: "https://sonar.example.com"
+sonarUrl: "https://sonar.techsecoms.com"
 
 # -- This is credantials name with administator rights for sonar.
 sonarSecret: "sonar-admin-password"
@@ -45,13 +45,13 @@ sonarSecret: "sonar-admin-password"
 # -- Integration with keycloak
 oidc:
   enabled: false
-  keycloakUrl: "https://keycloak.example.com"
+  keycloakUrl: "https://keycloak.techsecoms.com"
   keycloakRealm: "shared"
 
 # Configure components of the External Secrets Operator (ESO).
 eso:
   # -- Install components of the ESO.
-  enabled: true
+  enabled: false
   # -- Defines provider type. One of `aws` or `generic`.
   type: "generic"
   # -- Defines Secret Store name.
