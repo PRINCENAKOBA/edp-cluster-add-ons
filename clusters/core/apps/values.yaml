@@ -163,8 +163,8 @@ redis-operator:
   enable: false
 
 sonar:
-  createNamespace: false
-  enable: false
+  createNamespace: true
+  enable: true
 
 sonar-operator:
   createNamespace: true
