@@ -104,8 +104,8 @@ jaeger-operator:
   createNamespace: true
 
 keycloak:
-  createNamespace: false
-  enable: false
+  createNamespace: true
+  enable: true
 
 keycloak-postgresql:
   createNamespace: false

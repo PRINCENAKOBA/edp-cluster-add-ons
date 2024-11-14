@@ -5,7 +5,7 @@ sonarqube:
   ingress:
     enabled: true
     hosts:
-    - name: sonar.example.com
+    - name: sonar.techsecoms.com
     annotations:
       # This property allows for reports up to a certain size to be uploaded to SonarQube
       nginx.ingress.kubernetes.io/proxy-body-size: "64m"

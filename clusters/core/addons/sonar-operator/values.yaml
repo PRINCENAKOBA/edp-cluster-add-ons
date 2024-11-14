@@ -53,7 +53,7 @@ eso:
   # -- Install components of the ESO.
   enabled: true
   # -- Defines provider type. One of `aws` or `generic`.
-  type: "aws"
+  type: "generic"
   # -- Defines Secret Store name.
   secretStoreName: "aws-parameterstore"
   # -- Value name in AWS ParameterStore, AWS SecretsManager or other Secret Store.

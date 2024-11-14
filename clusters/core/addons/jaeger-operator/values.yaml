@@ -7,8 +7,8 @@ jaeger-operator:
       ingress:
         enabled: true
         hosts:
-          - jaeger.example.com
+          - jaeger.techsecoms.com
         # we need to ensure that oauth2-proxy is used for authentication
         annotations:
-          nginx.ingress.kubernetes.io/auth-signin: https://oauth-edp.example.com/oauth2/start?rd=https://$host$request_uri
+          nginx.ingress.kubernetes.io/auth-signin: https://oauth-edp.techsecoms.com/oauth2/start?rd=https://$host$request_uri
           nginx.ingress.kubernetes.io/auth-url: http://oauth2-proxy.edp.svc.cluster.local:8080/oauth2/auth
