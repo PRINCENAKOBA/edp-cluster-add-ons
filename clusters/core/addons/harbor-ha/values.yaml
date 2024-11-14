@@ -66,19 +66,19 @@ harbor:
         memory: 150Mi
     xsrfKey: "somekey"
     # (FIXME) This is not yet merged and still not released
-    configureUserSettings: |
-      {
-        "auth_mode": "oidc_auth",
-        "oidc_name": "keycloak",
-        "oidc_endpoint": "https://keycloak.techsecoms.com/auth/realms/shared",
-        "oidc_client_id": "harbor",
-        "oidc_client_secret": "YOURSECRET",
-        "oidc_groups_claim": "roles",
-        "oidc_admin_group": "administrator",
-        "oidc_scope": "openid,email,profile,roles",
-        "oidc_auto_onboard": "true",
-        "oidc_user_claim": "preferred_username"
-      }
+    # configureUserSettings: |
+    #   {
+    #     "auth_mode": "oidc_auth",
+    #     "oidc_name": "keycloak",
+    #     "oidc_endpoint": "https://keycloak.techsecoms.com/auth/realms/shared",
+    #     "oidc_client_id": "harbor",
+    #     "oidc_client_secret": "YOURSECRET",
+    #     "oidc_groups_claim": "roles",
+    #     "oidc_admin_group": "administrator",
+    #     "oidc_scope": "openid,email,profile,roles",
+    #     "oidc_auto_onboard": "true",
+    #     "oidc_user_claim": "preferred_username"
+    #   }
 
   jobservice:
     replicas: 2
@@ -121,6 +121,8 @@ harbor:
     ingress:
       hosts:
         core: registry.techsecoms.com
+        notary: notary.techsecoms.com
+        harbor: harbor.techsecoms.com
 
   # Use recreate strategy to avoid registry volume stuck in mounting status
   updateStrategy:
