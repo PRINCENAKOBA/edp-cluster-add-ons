@@ -204,7 +204,7 @@ pgo:
 # Configure components of the External Secrets Operator (ESO).
 eso:
   # -- Install components of the ESO.
-  enabled: true
+  enabled: false
   # -- Defines provider type. One of `aws` or `generic`.
   type: "generic"
   # -- Defines Secret Store name.
