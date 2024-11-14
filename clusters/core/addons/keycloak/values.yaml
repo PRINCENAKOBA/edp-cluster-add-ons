@@ -109,8 +109,8 @@ keycloakx:
             pathType: Prefix
     # Provides creating Ingress for Keycloak which is used to access the Keycloak Admin Console.
     tls: true
-        annotations:
-          cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
+
+
     console:
       enabled: true
       # Defines the class of the Ingress controller.
