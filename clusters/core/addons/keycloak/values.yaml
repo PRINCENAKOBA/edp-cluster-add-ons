@@ -26,9 +26,9 @@ keycloakx:
   # if they are not defined there will be an eternal loading of "LOGIN ADMIN UI"
   extraEnv: |
     - name: KC_HOSTNAME
-      value: "idp.techsecoms.com"
+      value: "keycloak.techsecoms.com"
     - name: KC_SPI_HOSTNAME_DEFAULT_ADMIN
-      value: "idp.techsecoms.com"
+      value: "keycloak.techsecoms.com"
     - name: KC_HTTP_ENABLED
       value: "true"
     - name: KC_HOSTNAME_STRICT
@@ -95,7 +95,7 @@ keycloakx:
     # Exposes Keycloak paths according to the rules from documentation.
     # Ref: https://www.keycloak.org/server/reverseproxy#_exposed_path_recommendations
     rules:
-      - host: idp.techsecoms.com
+      - host: keycloak.techsecoms.com
         paths:
           - path: '{{ tpl .Values.http.relativePath $ | trimSuffix "/" }}/realms/'
             pathType: Prefix
@@ -115,7 +115,7 @@ keycloakx:
         # Defines the IP addresses that are allowed to access the Keycloak Admin Console.
         # nginx.ingress.kubernetes.io/whitelist-source-range: "x.x.x.x/32"
       rules:
-        - host: idp.techsecoms.com
+        - host: keycloak.techsecoms.com
           # Paths for the host
           paths:
             - path: '{{ tpl .Values.http.relativePath $ | trimSuffix "/" }}/admin'
