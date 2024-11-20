@@ -1,0 +1,20 @@
+# templates/namespace.yaml
+{{- if .Values.eck-operator.createNamespace }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.destinationNamespace | default "elastic-system" }}
+  labels:
+    goldilocks.fairwinds.com/enabled: "true"
+    pod-security.kubernetes.io/enforce: "privileged"
+{{- end }}
+# templates/namespace.yaml
+{{- if .Values.eck-operator.createNamespace }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.destinationNamespace | default "elastic-system" }}
+  labels:
+    goldilocks.fairwinds.com/enabled: "true"
+    pod-security.kubernetes.io/enforce: "privileged"
+{{- end }}

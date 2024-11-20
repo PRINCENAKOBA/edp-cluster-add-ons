@@ -196,3 +196,7 @@ vault-okd:
 atlantis:
   createNamespace: false
   enable: false
+
+eck-operator:
+  enable: true
+  createNamespace: true

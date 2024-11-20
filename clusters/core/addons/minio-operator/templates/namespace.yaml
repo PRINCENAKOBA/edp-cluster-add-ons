@@ -1,0 +1,10 @@
+# templates/namespace.yaml
+{{- if .Values.minio-operator.createNamespace }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.destinationNamespace | default "minio-operator" }}
+  labels:
+    goldilocks.fairwinds.com/enabled: "true"
+    pod-security.kubernetes.io/enforce: "privileged"
+{{- end }}

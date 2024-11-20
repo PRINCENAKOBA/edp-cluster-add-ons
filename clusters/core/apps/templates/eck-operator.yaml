@@ -1,8 +1,8 @@
-{{- if and (index .Values "minio-operator") (index .Values "minio-operator" "enable") -}}
+{{- if and (index .Values "eck-operator") (index .Values "eck-operator" "enable") -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Values.destinationServer}}-minio-operator
+  name: {{ .Values.destinationServer}}-eck-operator
   namespace: {{ .Values.argoNamespace | default "argocd" }}
   labels:
     goldilocks.fairwinds.com/enabled: "true"
@@ -13,21 +13,20 @@ spec:
   project: {{ .Values.argoProject | default "default" }}
   source:
     repoURL: {{ .Values.repoUrl }}
-    path: clusters/core/addons/minio-operator
+    path: clusters/core/addons/eck-operator
     targetRevision: {{ .Values.targetRevision }}
+    helm:
+      releaseName: eck-operator
   destination:
     name: {{ .Values.destinationServer | default "in-cluster" }}
-    namespace: minio-operator
-    helm:
-      releaseName: minio-operator
+    namespace: elastic-system
   syncPolicy:
     syncOptions:
-      - CreateNamespace={{ (index .Values "minio-operator" "createNamespace") }}
+      - CreateNamespace={{ (index .Values "eck-operator" "createNamespace") }}
     retry:
       limit: 1
       backoff:
         duration: 5s
         factor: 2
         maxDuration: 1m
-
 {{- end -}}
