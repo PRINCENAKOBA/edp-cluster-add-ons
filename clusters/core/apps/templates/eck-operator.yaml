@@ -21,6 +21,9 @@ spec:
     name: {{ .Values.destinationServer | default "in-cluster" }}
     namespace: elastic-system
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace={{ (index .Values "eck-operator" "createNamespace") }}
     retry:

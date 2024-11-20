@@ -21,6 +21,9 @@ spec:
     name: {{ .Values.destinationServer | default "in-cluster" }}
     namespace: postgres-operator
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - ServerSideApply=true
       - CreateNamespace={{ (index .Values "postgres-operator" "createNamespace") }}

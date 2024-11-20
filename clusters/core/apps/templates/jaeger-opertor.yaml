@@ -21,6 +21,9 @@ spec:
     name: {{ .Values.destinationServer | default "in-cluster" }}
     namespace: jaeger-operator
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace={{ (index .Values "jaeger-operator" "createNamespace") }}
     retry:

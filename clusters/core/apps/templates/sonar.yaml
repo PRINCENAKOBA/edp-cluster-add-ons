@@ -21,6 +21,9 @@ spec:
     name: {{ .Values.destinationServer | default "in-cluster" }}
     namespace: sonar
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace={{ .Values.sonar.createNamespace }}
     retry:

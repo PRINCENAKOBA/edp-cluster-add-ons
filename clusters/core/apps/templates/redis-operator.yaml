@@ -21,6 +21,9 @@ spec:
     name: {{ .Values.destinationServer | default "in-cluster" }}
     namespace: redis-operator
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - ServerSideApply=true
       - CreateNamespace={{ (index .Values "redis-operator" "createNamespace") }}

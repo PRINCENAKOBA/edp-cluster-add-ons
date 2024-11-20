@@ -21,6 +21,9 @@ spec:
     helm:
       releaseName: minio-operator
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace={{ (index .Values "minio-operator" "createNamespace") }}
     retry:
