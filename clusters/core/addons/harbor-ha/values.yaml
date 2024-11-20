@@ -24,6 +24,7 @@ minio:
   mode: distributed
   ingress:
     enabled: true
+
     hostname: 'minio-harbor.techsecoms.com'
   auth:
     existingSecret: 'minio-admin-ui'
@@ -64,7 +65,7 @@ harbor:
       requests:
         cpu: 0.05
         memory: 150Mi
-    xsrfKey: "somekey"
+    # xsrfKey: "somekey"
     # (FIXME) This is not yet merged and still not released
     # configureUserSettings: |
     #   {
@@ -82,7 +83,7 @@ harbor:
 
   jobservice:
     replicas: 2
-    secret: SomeSecret
+    secret: ""
     jobLoggers:
       - database
     resources:
@@ -92,7 +93,7 @@ harbor:
 
   registry:
     replicas: 2
-    secret: SomeSecret
+    secret: ""
     credentials:
       # username is defined in existingSecret below, but this value also used by jobservice, so let's align it
       username: harbor_registry_user
@@ -109,7 +110,7 @@ harbor:
           memory: 300Mi
 
   fullnameOverride: harbor
-  externalURL: https://registry.techsecoms.com
+  externalURL: https://harbor.techsecoms.com
   ipFamily:
     # ipv6Enabled set to true if ipv6 is enabled in cluster, currently it affected the nginx related component
     ipv6:
@@ -117,12 +118,11 @@ harbor:
   expose:
     tls:
       # we are behind a load balancer, so we don't need to use TLS
-      enabled: false
+      enabled: true
     ingress:
       hosts:
-        core: registry.techsecoms.com
+        core: harbor.techsecoms.com
         notary: notary.techsecoms.com
-        harbor: harbor.techsecoms.com
 
   # Use recreate strategy to avoid registry volume stuck in mounting status
   updateStrategy:
@@ -142,7 +142,7 @@ harbor:
       s3:
         bucket: harbor
         existingSecret: harbor-s3
-        regionendpoint: "http://minio.harbor.svc.cluster.local:9000"
+        regionendpoint: "http://minio.harbor-system.svc.cluster.local:9000"
 
   portal:
     replicas: 2
@@ -152,7 +152,7 @@ harbor:
   database:
     type: external
     external:
-      host: "harbor-primary.harbor.svc"
+      host: "harbor-primary.harbor-system.svc"
       port: "5432"
       username: "harbor"
       existingSecret: "harbor-pguser-harbor"
@@ -161,16 +161,16 @@ harbor:
     type: external
     external:
       sentinelMasterSet: "mymaster"
-      addr: "redis-node-0.redis-headless.harbor.svc.cluster.local:26379,redis-node-1.redis-headless.harbor.svc.cluster.local:26379,redis-node-2.redis-headless.harbor.svc.cluster.local:26379"
+      addr: "redis-node-0.redis-headless.harbor-system.svc.cluster.local:26379,redis-node-1.redis-headless.harbor-system.svc.cluster.local:26379,redis-node-2.redis-headless.harbor-system.svc.cluster.local:26379"
       # https://github.com/goharbor/harbor-helm/issues/1352
       # existingSecret: "harbor-redis"
       # Copy here the password value from the "redis-creds" secret
-      password: "SomeSecret"
+      password: "caniseeU@1"
 
   metrics:
     enabled: true
     serviceMonitor:
-      enabled: true
+      enabled: false
 
 oidc:
   enabled: false
