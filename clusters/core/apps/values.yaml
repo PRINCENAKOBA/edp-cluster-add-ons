@@ -83,8 +83,8 @@ harbor:
 
 # Harbor with High Availability
 harbor-ha:
-  createNamespace: true
-  enable: true
+  createNamespace: false
+  enable: false
 
 # Harbor with HA, OKD Cluster
 harbor-ha-okd:
