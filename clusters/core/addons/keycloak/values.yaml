@@ -61,28 +61,28 @@ keycloakx:
       value: "true"
 
   # Example how to add custom theme to Keycloak
-  # extraInitContainers: |
-  #   - name: theme-provider
-  #     image: docker.io/epamedp/edp-keycloak-theme:0.1.5
-  #     imagePullPolicy: IfNotPresent
-  #     command:
-  #       - sh
-  #     args:
-  #       - -c
-  #       - |
-  #         echo "Copying theme..."
-  #         cp -R /edp/* /theme
-  #     volumeMounts:
-  #       - name: theme
-  #         mountPath: /theme
+  extraInitContainers: |
+    - name: theme-provider
+      image: docker.io/epamedp/edp-keycloak-theme:0.1.5
+      imagePullPolicy: IfNotPresent
+      command:
+        - sh
+      args:
+        - -c
+        - |
+          echo "Copying theme..."
+          cp -R /edp/* /theme
+      volumeMounts:
+        - name: theme
+          mountPath: /theme
 
-  # extraVolumeMounts: |
-  #   - name: theme
-  #     mountPath: /opt/keycloak/themes/edp
+  extraVolumeMounts: |
+    - name: theme
+      mountPath: /opt/keycloak/themes/edp
 
-  # extraVolumes: |
-  #   - name: theme
-  #     emptyDir: {}
+  extraVolumes: |
+    - name: theme
+      emptyDir: {}
 
   # This block should be uncommented if you install Keycloak on Kubernetes
   ingress:
