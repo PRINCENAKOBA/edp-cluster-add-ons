@@ -128,8 +128,8 @@ nexus:
   enable: false
 
 nexus-operator:
-  createNamespace: false
-  enable: false
+  createNamespace: true
+  enable: true
 
 # OAuth2 Proxy for tekton dashboard
 oauth2-proxy:
